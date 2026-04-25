@@ -22,6 +22,7 @@ int main() {
             if(at[i] <= time && rt[i] > 0) {
                 if(bt[i] < highest) {
                     highest = bt[i];
+                    idx = i;
                 }
             }
         }
