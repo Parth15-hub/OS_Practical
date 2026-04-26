@@ -6,10 +6,10 @@ int main() {
     int req[50], head;
     int visited[50] = {0};
     int total_seek = 0;
-
+    
     printf("Enter number of requests: ");
     scanf("%d", &n);
-
+    
     printf("Enter request sequence: ");
     for(i = 0; i < n; i++)
         scanf("%d", &req[i]);
@@ -42,6 +42,5 @@ int main() {
     }
 
     printf("\nTotal Seek Time = %d\n", total_seek);
-
     return 0;
 }
