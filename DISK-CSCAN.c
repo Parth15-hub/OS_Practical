@@ -18,6 +18,8 @@ int main() {
     printf("Enter disk size: ");
     scanf("%d", &size);
 
+    int start = head;   // store original head
+
     // Sort requests
     for(i = 0; i < n-1; i++) {
         for(j = i+1; j < n; j++) {
@@ -31,28 +33,28 @@ int main() {
 
     printf("\nMovement of head:\n");
 
-    // Move towards higher tracks
+    // Step 1: Move towards higher tracks
     for(i = 0; i < n; i++) {
-        if(req[i] >= head) {
+        if(req[i] >= start) {
             printf("%d -> %d\n", head, req[i]);
             total += abs(head - req[i]);
             head = req[i];
         }
     }
 
-    // Go to end of disk
+    // Step 2: Go to end of disk
     printf("%d -> %d\n", head, size-1);
     total += abs(head - (size-1));
-    
-    // Jump to start (0)
-    printf("%d -> %d\n", size-1, 0);
-    total += (size-1);   // jump distance
+    head = size - 1;
 
+    // Step 3: Jump to start (0)
+    printf("%d -> %d\n", head, 0);
+    total += (size - 1);
     head = 0;
 
-    // Continue from beginning
+    // Step 4: Process remaining requests (< original head)
     for(i = 0; i < n; i++) {
-        if(req[i] < head) {
+        if(req[i] < start) {
             printf("%d -> %d\n", head, req[i]);
             total += abs(head - req[i]);
             head = req[i];
