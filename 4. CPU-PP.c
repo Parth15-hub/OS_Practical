@@ -2,8 +2,7 @@
 
 int main() {
     int n, i, time = 0, completed = 0;
-    int at[20], bt[20], pr[20];
-    int rt[20], ct[20], tat[20], wt[20];
+    int at[20], bt[20], pr[20], rt[20], ct[20], tat[20], wt[20];
     float total_wt = 0, total_tat = 0;
     
     printf("Enter number of processes: ");
