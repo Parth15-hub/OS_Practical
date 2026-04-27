@@ -38,8 +38,7 @@ int main() {
             front = (front + 1) % f;
             faults++;
             printf("%d\t", pages[i]);
-        }
-        else {
+        } else {
             hits++;
             printf("%d\t", pages[i]);
         }
