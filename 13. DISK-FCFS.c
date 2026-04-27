@@ -25,6 +25,5 @@ int main() {
     }
 
     printf("\nTotal Seek Time = %d\n", total_seek);
-
     return 0;
 }
