@@ -20,7 +20,6 @@ int main() {
 
     for(i = 0; i < n; i++) {
         printf("%d -> %d\n", head, req[i]);
-
         total_seek += abs(head - req[i]);  // main formula
         head = req[i];
     }
