@@ -35,7 +35,6 @@ int main() {
 
         // Move head
         printf("%d -> %d\n", head, req[index]);
-
         total_seek += abs(head - req[index]);
         head = req[index];
         visited[index] = 1;
