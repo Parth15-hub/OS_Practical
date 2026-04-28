@@ -28,7 +28,6 @@ int main() {
 
     printf("\nMovement of head:\n");
 
-    // Move right
     for(i = 0; i < n; i++) {
         if(req[i] >= head) {
             printf("%d -> %d\n", head, req[i]);
@@ -37,17 +36,12 @@ int main() {
         }
     }
 
-    // Jump to smallest request (NOT 0)
-    for(i = 0; i < n; i++) {
-        if(req[i] < head) {
-            printf("%d -> %d\n", head, req[i]);
-            total += abs(head - req[i]);
-            head = req[i];
-            break;
-        }
+    if(pos > 0) {
+        printf("%d -> %d\n", head, req[0]);
+        total += abs(head - req[0]);
+        head = req[0];
     }
 
-    // Continue
     for(i = 0; i < n; i++) {
         if(req[i] < head) {
             printf("%d -> %d\n", head, req[i]);
