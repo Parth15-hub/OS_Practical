@@ -28,26 +28,35 @@ int main() {
 
     printf("\nMovement of head:\n");
 
+    int pos;
+
+    // Find position of head
     for(i = 0; i < n; i++) {
         if(req[i] >= head) {
-            printf("%d -> %d\n", head, req[i]);
-            total += abs(head - req[i]);
-            head = req[i];
+            pos = i;
+            break;
         }
     }
 
+    // Move right
+    for(i = pos; i < n; i++) {
+        printf("%d -> %d\n", head, req[i]);
+        total += abs(head - req[i]);
+        head = req[i];
+    }
+
+    // Jump to first (smallest request)
     if(pos > 0) {
         printf("%d -> %d\n", head, req[0]);
         total += abs(head - req[0]);
         head = req[0];
     }
 
-    for(i = 0; i < n; i++) {
-        if(req[i] < head) {
-            printf("%d -> %d\n", head, req[i]);
-            total += abs(head - req[i]);
-            head = req[i];
-        }
+    // Continue remaining
+    for(i = 1; i < pos; i++) {
+        printf("%d -> %d\n", head, req[i]);
+        total += abs(head - req[i]);
+        head = req[i];
     }
 
     printf("\nTotal Seek Time = %d\n", total);
